@@ -2,7 +2,6 @@ package main;
 
 import notification.NotificationService;
 import notification.SimpleNotificationFactory;
-
 public class Main {
 
     public static void main(String[] args) {
