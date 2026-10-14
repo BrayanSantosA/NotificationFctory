@@ -1,17 +1,16 @@
 package main;
-import notification.Notification;
-import notification.NotificationFactory;
+
+import notification.NotificationService;
+import notification.SimpleNotificationFactory;
 
 public class Main {
 
     public static void main(String[] args) {
-        Notification email = NotificationFactory.createNotification("EMAIL");
-        email.send("Your account has been created successfully.");
+        SimpleNotificationFactory factory = new SimpleNotificationFactory();
+        NotificationService service = new NotificationService(factory);
 
-        Notification sms = NotificationFactory.createNotification("SMS");
-        sms.send("Your verification code is 123456.");
-
-        Notification whatsapp = NotificationFactory.createNotification("WHATSAPP");
-        whatsapp.send("Your order has been shipped.");
+        service.sendNotification("email", "Your account has been created successfully.");
+        service.sendNotification("sms", "Your verification code is 123456.");
+        service.sendNotification("whatsapp", "Your order has been shipped.");
     }
 }
